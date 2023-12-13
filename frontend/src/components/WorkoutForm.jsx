@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useWorkoutContext } from "../../hooks/useWorkoutsContext";
 
 const inputStyle =
   "p-2 mt-2 mb-5 w-full border border-[#ddd] rounded cursor-pointer";
 
 const WorkoutForm = () => {
+  const { dispatch } = useWorkoutContext();
+
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
@@ -31,6 +34,7 @@ const WorkoutForm = () => {
       setTitle("");
       setLoad("");
       setReps("");
+      dispatch({ type: "CREATE_WORKOUT", payload: json });
     }
   };
 
