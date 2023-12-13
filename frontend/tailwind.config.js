@@ -8,7 +8,7 @@ export default {
       },
       colors: {
         primary: { DEFAULT: "#1aac83" },
-        error: { DEFAULT: "#e7195a" },
+        error: { DEFAULT: "#e7195a", bg: "#ffefef" },
       },
     },
   },

@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="bg-[#f1f1f1] min-h-screen">
+    <div className="bg-[#f1f1f1] min-h-screen font-poppins">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
