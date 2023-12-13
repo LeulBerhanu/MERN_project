@@ -2,7 +2,15 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
+      colors: {
+        primary: { DEFAULT: "#1aac83" },
+        error: { DEFAULT: "#e7195a" },
+      },
+    },
   },
   plugins: [],
 };
