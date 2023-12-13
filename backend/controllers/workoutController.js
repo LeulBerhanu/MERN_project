@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const getWorkouts = async (req, res) => {
   try {
     const workouts = await Workout.find({}).sort({ createdAt: -1 });
+    console.log("WORKOUTS", workouts);
     if (!workouts)
       return res.status(404).json({ error: "Workouts not found!" });
 

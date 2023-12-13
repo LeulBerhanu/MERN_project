@@ -13,10 +13,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
+        {/* <Route
           path="/about"
           element={<h2 className="text-4xl font-poppins">About</h2>}
-        />
+        /> */}
       </Routes>
     </div>
   );
