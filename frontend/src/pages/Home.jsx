@@ -21,7 +21,7 @@ function Home() {
     };
 
     fetchWorkouts();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container p-5 mx-auto grid grid-cols-[3fr_1fr] gap-24 ">

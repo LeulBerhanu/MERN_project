@@ -11,6 +11,7 @@ const WorkoutForm = () => {
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,14 +27,18 @@ const WorkoutForm = () => {
     });
     const json = await response.json();
 
-    if (!response.ok) setError(json.error);
+    if (!response.ok) {
+      setError(json.error);
+      setEmptyFields(json.emptyFields);
+    }
 
     if (response.ok) {
-      setError(null);
-      console.log("new workout added");
       setTitle("");
       setLoad("");
       setReps("");
+      setError(null);
+      setEmptyFields([]);
+      console.log("new workout added", json);
       dispatch({ type: "CREATE_WORKOUT", payload: json });
     }
   };
@@ -47,7 +52,11 @@ const WorkoutForm = () => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className={inputStyle}
+        className={`${
+          emptyFields.includes("title")
+            ? `${inputStyle} border-error`
+            : inputStyle
+        }`}
       />
 
       <label>Load (in Kg): </label>
@@ -55,7 +64,11 @@ const WorkoutForm = () => {
         type="number"
         value={load}
         onChange={(e) => setLoad(e.target.value)}
-        className={inputStyle}
+        className={`${
+          emptyFields.includes("load")
+            ? `${inputStyle} border-error`
+            : inputStyle
+        }`}
       />
 
       <label>Reps: </label>
@@ -63,7 +76,11 @@ const WorkoutForm = () => {
         type="number"
         value={reps}
         onChange={(e) => setReps(e.target.value)}
-        className={inputStyle}
+        className={`${
+          emptyFields.includes("reps")
+            ? `${inputStyle} border-error`
+            : inputStyle
+        }`}
       />
 
       <button className="bg-primary text-white p-2 rounded cursor-pointer focus:outline-none">
