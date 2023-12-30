@@ -86,11 +86,7 @@ const WorkoutForm = () => {
       <button className="bg-primary text-white p-2 rounded cursor-pointer focus:outline-none">
         Add Workout
       </button>
-      {error && (
-        <div className="p-2 bg-error-bg text-error border border-error rounded mt-5 mb-5">
-          {error}
-        </div>
-      )}
+      {error && <div className="error">{error}</div>}
     </form>
   );
 };
