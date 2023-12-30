@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const primaryColor = "#1aac83";
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -7,7 +10,7 @@ export default {
         poppins: ["Poppins", "sans-serif"],
       },
       colors: {
-        primary: { DEFAULT: "#1aac83" },
+        primary: { DEFAULT: primaryColor },
         error: { DEFAULT: "#e7195a", bg: "#ffefef" },
       },
     },

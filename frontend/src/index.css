@@ -31,3 +31,7 @@ h6 {
   font-size: 16px;
   font-weight: 600;
 }
+
+.btn-primary {
+  @apply bg-primary text-white p-2 rounded-[4px];
+}

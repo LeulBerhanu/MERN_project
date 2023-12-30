@@ -11,13 +11,12 @@ function Navbar() {
         >
           <h1 className="text-4xl">Workout Buddy</h1>
         </NavLink>
-        <NavLink
-          to="/about"
-          className={({ isActive }) => (isActive ? " font-bold" : " font-thin")}
-        >
-          <h1 className="text-4xl">about</h1>
-        </NavLink>
-        <NavLink></NavLink>
+        <nav className="flex items-center">
+          <div className="flex items-center gap-3">
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/signup">Signup</NavLink>
+          </div>
+        </nav>
       </div>
     </header>
   );
