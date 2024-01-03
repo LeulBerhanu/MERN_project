@@ -1,5 +1,6 @@
 import React from "react";
 import { useWorkoutContext } from "../../hooks/useWorkoutsContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import { MdDelete } from "react-icons/md";
 
 // date fns
@@ -9,12 +10,20 @@ const p_style = "m-0 text-sm text-[#555]";
 
 const WorkoutDetails = ({ workout }) => {
   const { dispatch } = useWorkoutContext();
+  const { user } = useAuthContext();
 
   const handleDelete = async () => {
+    if (!user) {
+      return;
+    }
+
     const response = await fetch(
       `http://localhost:4000/api/workouts/${workout._id}`,
       {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       }
     );
 
