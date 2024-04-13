@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useWorkoutContext } from "../../hooks/useWorkoutsContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { apiBaseUrl } from "../../apiBaseUrl";
 
 // components
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 
 function Home() {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
-
   const [error, setError] = useState(null);
   const { workouts, dispatch } = useWorkoutContext();
   const { user } = useAuthContext();
@@ -16,7 +15,7 @@ function Home() {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const res = await fetch(`${baseUrl}/api/workouts`, {
+        const res = await fetch(`${apiBaseUrl}/api/workouts`, {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

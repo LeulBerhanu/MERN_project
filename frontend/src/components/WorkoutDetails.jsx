@@ -5,12 +5,11 @@ import { MdDelete } from "react-icons/md";
 
 // date fns
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { apiBaseUrl } from "../../apiBaseUrl";
 
 const p_style = "m-0 text-sm text-[#555]";
 
 const WorkoutDetails = ({ workout }) => {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
-
   const { dispatch } = useWorkoutContext();
   const { user } = useAuthContext();
 
@@ -19,7 +18,7 @@ const WorkoutDetails = ({ workout }) => {
       return;
     }
 
-    const response = await fetch(`${baseUrl}/api/workouts/${workout._id}`, {
+    const response = await fetch(`${apiBaseUrl}/api/workouts/${workout._id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useWorkoutContext } from "../../hooks/useWorkoutsContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { apiBaseUrl } from "../../apiBaseUrl";
 
 const inputStyle =
   "p-2 mt-2 mb-5 w-full border border-[#ddd] rounded cursor-pointer";
 
 const WorkoutForm = () => {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
-
   const { dispatch } = useWorkoutContext();
   const { user } = useAuthContext();
 
@@ -27,7 +26,7 @@ const WorkoutForm = () => {
 
     const workout = { title, load, reps };
 
-    const response = await fetch(`${baseUrl}/api/workouts`, {
+    const response = await fetch(`${apiBaseUrl}/api/workouts`, {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
