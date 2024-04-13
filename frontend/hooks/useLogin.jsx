@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 const useLogin = () => {
-  const baseUrl = import.meta.env.API_BASE_URL;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);

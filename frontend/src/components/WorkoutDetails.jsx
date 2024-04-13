@@ -9,7 +9,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 const p_style = "m-0 text-sm text-[#555]";
 
 const WorkoutDetails = ({ workout }) => {
-  const baseUrl = import.meta.env.API_BASE_URL;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const { dispatch } = useWorkoutContext();
   const { user } = useAuthContext();

@@ -6,7 +6,7 @@ const inputStyle =
   "p-2 mt-2 mb-5 w-full border border-[#ddd] rounded cursor-pointer";
 
 const WorkoutForm = () => {
-  const baseUrl = import.meta.env.API_BASE_URL;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const { dispatch } = useWorkoutContext();
   const { user } = useAuthContext();

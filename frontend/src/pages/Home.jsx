@@ -7,7 +7,7 @@ import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 
 function Home() {
-  const baseUrl = import.meta.env.API_BASE_URL;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const [error, setError] = useState(null);
   const { workouts, dispatch } = useWorkoutContext();
