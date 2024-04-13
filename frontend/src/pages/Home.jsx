@@ -21,7 +21,10 @@ function Home() {
         });
         const json = await res.json();
 
-        if (!res.ok) throw new Error(json.error);
+        if (!res.ok) {
+          dispatch({ type: "SET_WORKOUTS", payload: [] });
+          throw new Error(json.error);
+        }
 
         if (res.ok) {
           setError(null);
@@ -37,12 +40,10 @@ function Home() {
     }
   }, [dispatch, user]);
 
-  console.log(error);
-
   return (
     <div className="container p-5 mx-auto grid grid-cols-[3fr_1fr] gap-24 ">
       <div className=" ">
-        {workouts.length !== 0 ? (
+        {workouts && workouts.length !== 0 ? (
           workouts.map((workout) => (
             <div
               key={workout._id}

@@ -13,7 +13,7 @@ function Navbar() {
 
   return (
     <header className="bg-white">
-      <div className="container px-2 py-5 mx-auto border-2 flex items-center justify-between">
+      <div className="container px-2 py-5 mx-auto flex items-center justify-between">
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? "font-bold" : " font-thin")}
@@ -26,7 +26,7 @@ function Navbar() {
               <span>{user.email}</span>
               <button
                 onClick={handleLogout}
-                className="text-primary px-1 py-2 rounded-[4px] border-2 border-primary"
+                className="text-primary px-1 py-2 ml-4 rounded-[4px] border-2 border-primary"
               >
                 Log out
               </button>
