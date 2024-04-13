@@ -7,6 +7,8 @@ import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 
 function Home() {
+  const baseUrl = import.meta.env.API_BASE_URL;
+
   const [error, setError] = useState(null);
   const { workouts, dispatch } = useWorkoutContext();
   const { user } = useAuthContext();
@@ -14,7 +16,7 @@ function Home() {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/workouts", {
+        const res = await fetch(`${baseUrl}/api/workouts`, {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

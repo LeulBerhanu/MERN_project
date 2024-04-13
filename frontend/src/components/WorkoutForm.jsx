@@ -6,6 +6,8 @@ const inputStyle =
   "p-2 mt-2 mb-5 w-full border border-[#ddd] rounded cursor-pointer";
 
 const WorkoutForm = () => {
+  const baseUrl = import.meta.env.API_BASE_URL;
+
   const { dispatch } = useWorkoutContext();
   const { user } = useAuthContext();
 
@@ -25,7 +27,7 @@ const WorkoutForm = () => {
 
     const workout = { title, load, reps };
 
-    const response = await fetch("http://localhost:4000/api/workouts", {
+    const response = await fetch(`${baseUrl}/api/workouts`, {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {
