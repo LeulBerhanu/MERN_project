@@ -7,6 +7,8 @@ import { apiBaseUrl } from "../../apiBaseUrl";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 
+console.log(apiBaseUrl);
+
 function Home() {
   const [error, setError] = useState(null);
   const { workouts, dispatch } = useWorkoutContext();

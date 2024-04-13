@@ -11,11 +11,11 @@ const requireAuth = require("../middleware/requireAuth");
 
 const router = express.Router();
 
-// Require auth for all workout routes
-router.use(requireAuth);
-
 // GET all workouts
 router.get("/", getWorkouts);
+
+// Require auth for all workout routes
+router.use(requireAuth);
 
 // GET a single workout
 router.get("/:id", getWorkout);
